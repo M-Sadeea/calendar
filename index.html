@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Quick Calendar</title>
+    <!-- link to the style sheet -->
+    <link rel="stylesheet" href="style.css">
+    <!-- link to javascript file -->
+    <script src="calender-dev.js"></script>
+</head>
+<body>
+    <!-- calendar wrapper -->
+    <div class="cal"></div>
+<script>
+    // you can pass a css selector or a Html element
+        // let ele = document.querySelector('.cal');
+        // var cal = new Cal(ele);
+    // or:
+    var cal = new Cal('.cal');
+
+    // the default month is the current month
+
+    // you can add an event simplly by calling addEvent method and pass the date 'YYYY-MM-DD'
+    // you can insert any format accepted by Date function.
+    cal.addEvent('2019-3-2', true);
+    // the method accept another bollean parameter to refresh the calender imeditly after adding the event, 
+    // but it is better when we finsh all the work then refresh it manually
+    // so the default value for refresh is false
+    
+    // you can pass a Date Object
+    let dt=new Date('Mar 27 2019');
+    cal.addEvent(dt);
+
+    // you can pass an object contains the date, the tip, the class and an option to loop the event
+    // the loop option accept 'month' and 'year'
+    cal.addEvent({date:'2019-03-10', tip:'WOW', loop:'month'});
+    
+    // you can also pass an array of events
+    // you can pass one class or an array of classes
+    cal.addEvent([
+        '2019-3-5',
+        {date:'2019-3-9'},
+        {date:'2019-3-12', class:'red', tip:'Important!', loop:'month'},
+        {date:'2019-3-21', tip:'this is great!', class:['red','cal-animate']},
+        {date:'2019-4-23', tip:'Try it!'}
+    ]);
+
+    let id = cal.addEvent('2019-3-18');  // return event's ID, use it to remove the event later if you need to.
+    cal.removeEvent(id); // you can also pass an array of Id's
+
+    //  you can give any date a special class, you can pass one class or an array of classes
+    cal.setDayClass ({date:'2019-3-16', class: 'gold'});
+    cal.setDayClass ({date:'2019-3-21', class: ['gold', 'big']});
+
+    // now you are ready to refresh the calendar
+    cal.refresh();
+
+
+    // there is also many othe methods, you can try them all, I will list theme here:
+    // cal.el() : returns calendar wrapper element
+    // cal.refresh() : rebuild the calender
+    // cal.prevMonth() : go to the privious month
+    // cal.nextMonth() : go to the next month
+    // cal.setFirstDayInTheWeek(n):  set the first day to be used, 0 is Sunday .. 6 is Saturday, 
+    // cal.removeEvent: (ids, refresh) => {
+    // cal.clearEvents(refresh) : clear all the events in the calender, pass true to refresh the calendar 
+    // cal.removeSpecialDayClass(obj, refresh) : use it to remove a class from a date, 
+    //                                            you can pass a string date to remove all it's classes
+    //                                            or pass an object {date: .. , class:..} where class can be a string or an array
+    // clearAllSpecialClasses(refresh) : to clear all the classes from all dates
+    // goToDate(date) : use it to go to a date, you can pass a string or a Date Object
+    </script>
+
+</body>
+</html>
