@@ -25,8 +25,8 @@
     // you can add an event simplly by calling addEvent method and pass the date 'YYYY-MM-DD'
     // you can insert any format accepted by Date function.
     cal.addEvent('2019-3-2', true);
-    // the method accept another bollean parameter to refresh the calender imeditly after adding the event, 
-    // but it is better when we finsh all the work then refresh it manually
+    // the method accept another bollean parameter to refresh the calender immediately after adding the event, 
+    // but it is better when we finish all the work then refresh it manually
     // so the default value for refresh is false
     
     // you can pass a Date Object
@@ -34,6 +34,7 @@
     cal.addEvent(dt);
 
     // you can pass an object contains the date, the tip, the class and an option to loop the event
+    // the tip will popup as the mouse hover over the event
     // the loop option accept 'month' and 'year'
     cal.addEvent({date:'2019-03-10', tip:'WOW', loop:'month'});
     
@@ -63,8 +64,7 @@
     // cal.refresh() : rebuild the calender
     // cal.prevMonth() : go to the privious month
     // cal.nextMonth() : go to the next month
-    // cal.setFirstDayInTheWeek(n):  set the first day to be used, 0 is Sunday .. 6 is Saturday, 
-    // cal.removeEvent: (ids, refresh) => {
+    // cal.setFirstDayInTheWeek(n):  set the first day to be used, 0 is Sunday .. 6 is Saturday.
     // cal.clearEvents(refresh) : clear all the events in the calender, pass true to refresh the calendar 
     // cal.removeSpecialDayClass(obj, refresh) : use it to remove a class from a date, 
     //                                            you can pass a string date to remove all it's classes
