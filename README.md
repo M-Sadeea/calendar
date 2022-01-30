@@ -8,3 +8,4 @@
   <li>add legend at the bottom of the calender</li>
   <li>add an input to allow the user to select the current month and year</li>
   </ul>
+<p>Example: <a href="https://codepen.io/sadeea/pen/rRrLOm">CodePen.io</a>
